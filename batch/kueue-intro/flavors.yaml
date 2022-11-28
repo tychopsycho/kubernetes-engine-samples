@@ -1,0 +1,19 @@
+apiVersion: kueue.x-k8s.io/v1alpha2
+kind: ResourceFlavor
+metadata:
+  name: default # This ResourceFlavor will be used for the memory resource
+---
+apiVersion: kueue.x-k8s.io/v1alpha2
+kind: ResourceFlavor
+metadata:
+  name: render # This ResourceFlavor will be used for the GPU resource
+---
+apiVersion: kueue.x-k8s.io/v1alpha2
+kind: ResourceFlavor
+metadata:
+  name: on-demand # This ResourceFlavor will be used for the CPU resource
+---
+apiVersion: kueue.x-k8s.io/v1alpha2
+kind: ResourceFlavor
+metadata:
+  name: storage # This ResourceFlavor will be used for the ephemeral-storage resource

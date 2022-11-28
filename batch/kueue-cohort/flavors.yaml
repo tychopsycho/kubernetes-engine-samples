@@ -1,0 +1,18 @@
+apiVersion: kueue.x-k8s.io/v1alpha2
+kind: ResourceFlavor
+metadata:
+  name: default # This ResourceFlavor will be used for the memory resource
+---
+apiVersion: kueue.x-k8s.io/v1alpha2
+kind: ResourceFlavor
+metadata:
+  name: on-demand # This ResourceFlavor will be used for the CPU resource
+  labels:
+    spot: "false"
+---
+apiVersion: kueue.x-k8s.io/v1alpha2
+kind: ResourceFlavor
+metadata:
+  name: spot # This ResourceFlavor will be used as added resource for the CPU resource
+  labels:
+    spot: "true"
