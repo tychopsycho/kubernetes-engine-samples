@@ -3,7 +3,7 @@
     "config:base"
   ],
   "dockerfile": {
-    "enabled": false
+    "enabled": true
   },
   "pip-compile": {
     "enabled": true,
