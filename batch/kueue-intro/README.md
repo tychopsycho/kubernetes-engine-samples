@@ -1,4 +1,4 @@
-`# Deploy a simple Kueue deployment
+# Deploy a simple Kueue deployment
 
 This tutorial shows how to set up Kueue to perform Job queueing in Kubernetes. Follow this tutorial to learn the basics on what Kueue aims to achieve. 
 
