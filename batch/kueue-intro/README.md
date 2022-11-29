@@ -1,12 +1,12 @@
-# Deploy a simple Kueue deployment
+`# Deploy a simple Kueue deployment
 
-This tutorial shows how to set up Kueue to perform Job queueing in Kubernetes. Follow this tutorial to learn the basics on what Kueue and aims to accomplish. 
+This tutorial shows how to set up Kueue to perform Job queueing in Kubernetes. Follow this tutorial to learn the basics on what Kueue aims to achieve. 
 
 ## Background
 
 Kueue is a new set of APIs that handle Job queueing and elastic quota management. It is a Job level manager that decides when a job should be admitted to start, and when to stop. Kueue does not re-implement existing functionality like autoscaling, pod scheduling and job lifecycle management. It supports native batch/v1.job API and integrates custom workloads. Kueue is a slim implementation that reuses the maximum of the K8S core, and has full compatibility with the ecosystem. 
 
-As an application operator or an application devloper, Kueue manages Jobs and properly queues them. Kueue can be facilitate workloads that uses Machine learning, training, and rendering. 
+As an application operator or an application developer, Kueue manages Jobs and properly queues them. Kueue can facilitate workloads that use machine learning, training, and rendering. 
 
 ## Objective
 
@@ -25,7 +25,7 @@ This tutorial uses Google Cloud Platform (GCP) and Google Kubernetes Engine (GKE
 
 ## Before you begin
 
-### Set up your proejct
+### Set up your project
 
 1. In the Google Cloud console, on the project selector page, click Create project to begin creating a new Google Cloud project.
 
@@ -45,7 +45,7 @@ This tutorial uses Google Cloud Platform (GCP) and Google Kubernetes Engine (GKE
 
     Note: Cluster creation can take up to 10 minutes.
 
-    GKE Autopilot allows node pools autoscaling where node pools get created on demand, and will provision the necessary resources for the node pool. 
+    GKE Autopilot allows node pool autoscaling where node pools get created on demand, and will provision the necessary resources for the node pool. 
 
 1. Install the release version of Kueue to the cluster:
 
@@ -219,9 +219,9 @@ This [Job](https://kubernetes.io/docs/concepts/workloads/controllers/job/) will 
 
 The Job will sleep for 10 seconds, with 3 paralleled Jobs and will be completed with 3 completions. It will then be cleaned up after 60 seconds indicated by `ttlSecondsAfterFinished`.
 
-This Job will requires 1 CPU request, 100Mi of memory, 100Mi of ephemeral storage, and 1 GPU request. 
+This Job will require 1 CPU request, 100Mi of memory, 100Mi of ephemeral storage, and 1 GPU request. 
 
-We will also create another Job named `team-b-job.yaml` where it it's namespace will be in `team-b`, with slightly different requests to represent different teams with different needs. 
+We will also create another Job named `team-b-job.yaml` where it's namespace will be in `team-b`, with slightly different requests to represent different teams with different needs. 
 
 Note: Learn more information on [deploying GPU workloads in Autopilot](https://cloud.google.com/kubernetes-engine/docs/how-to/autopilot-gpus)
 
@@ -250,7 +250,7 @@ Note: Learn more information on [deploying GPU workloads in Autopilot](https://c
 
     Note: It is normal to see the error message `Unschedulable` on the Workload while pods are scaling up.
 
-1. When the pending workloads starts increasing from the ClusterQueue, end the script by pressing `CTRL + C` on the running script.
+1. When the pending workloads start increasing from the ClusterQueue, end the script by pressing `CTRL + C` on the running script.
 
 1. Once all Jobs are completed, notice the nodes being scaled down
 
@@ -281,3 +281,4 @@ Note: Learn more information on [deploying GPU workloads in Autopilot](https://c
 * [Multiple resource-type ClusterQueues using Kueue]()
 * Contribute to the [Kueue Github repo](kueue.sh)
 
+`

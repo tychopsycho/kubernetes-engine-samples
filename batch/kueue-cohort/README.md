@@ -21,7 +21,7 @@ This tutorial uses Google Cloud Platform (GCP) and Google Kubernetes Engine (GKE
 
 ## Before you begin
 
-### Set up your proejct
+### Set up your project
 
 1. In the Google Cloud console, on the project selector page, click Create project to begin creating a new Google Cloud project.
 
@@ -173,7 +173,7 @@ Use Prometheus to monitor Kueue pending workloads and active workloads.
     kubectl create -f Prometheus/setup
     ```
 
-1. Create the remianing resources
+1. Create the remaining resources
 
     ```sh
     kubectl create -f Prometheus
