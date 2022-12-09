@@ -19,7 +19,7 @@ metadata:
   namespace: team-b # Job under team-b namespace
   generateName: sample-job-
   annotations:
-    kueue.x-k8s.io/queue-name: team-a-lq # Point to the LocalQueue
+    kueue.x-k8s.io/queue-name: team-b-lq # Point to the LocalQueue
 spec:
   ttlSecondsAfterFinished: 60 # Job will be deleted after 60 seconds
   parallelism: 3 # This Job will have 3 replicas running at the same time
