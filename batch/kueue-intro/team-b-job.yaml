@@ -16,7 +16,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  namespace: team-a # Job under team-a namespace
+  namespace: team-b # Job under team-b namespace
   generateName: sample-job-
   annotations:
     kueue.x-k8s.io/queue-name: team-a-lq # Point to the LocalQueue
