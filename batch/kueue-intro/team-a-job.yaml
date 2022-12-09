@@ -35,9 +35,9 @@ spec:
         args: ["10s"] # Sleep for 10 seconds
         resources:
           requests:
-            cpu: "50m"
-            memory: "100Mi"
-            ephemeral-storage: "100Mi"
+            cpu: "500m"
+            memory: "512Mi"
+            ephemeral-storage: "512Mi"
             nvidia.com/gpu: "1"
           limits:
             nvidia.com/gpu: "1"
