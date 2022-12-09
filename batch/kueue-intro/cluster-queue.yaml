@@ -33,12 +33,12 @@ spec:
         min: 10Gi
   - name: "nvidia.com/gpu"
     flavors:
-    - name: default
+    - name: nvidia-tesla-t4
       quota:
         min: 10
   - name: "ephemeral-storage"
     flavors:
     - name: default
       quota:
-        min: 5Gi
+        min: 10Gi
 # [END gke_batch_kueue_intro_cq]

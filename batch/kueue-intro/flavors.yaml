@@ -16,5 +16,10 @@
 apiVersion: kueue.x-k8s.io/v1alpha2
 kind: ResourceFlavor
 metadata:
-  name: default # This ResourceFlavor will be used for all the resources
+  name: default # This ResourceFlavor will be used for all the resources except the GPU
+---
+apiVersion: kueue.x-k8s.io/v1alpha2
+kind: ResourceFlavor
+metadata:
+  name: nvidia-tesla-t4 # This ResourceFlavor will be used the GPU with the corresponding model
 # [END gke_batch_kueue_intro_flavors]
