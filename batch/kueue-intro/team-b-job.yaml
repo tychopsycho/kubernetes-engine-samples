@@ -40,6 +40,9 @@ spec:
             ephemeral-storage: "100Mi"
             nvidia.com/gpu: "1"
           limits:
+            cpu: "500m"
+            memory: "512Mi"
+            ephemeral-storage: "512Mi"
             nvidia.com/gpu: "1"
       restartPolicy: Never
 # [END gke_batch_kueue_intro_team_b_job]
