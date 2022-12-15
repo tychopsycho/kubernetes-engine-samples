@@ -33,7 +33,7 @@ spec:
         min: 10Gi
   - name: "nvidia.com/gpu"
     flavors:
-    - name: nvidia-tesla-t4
+    - name: default
       quota:
         min: 10
   - name: "ephemeral-storage"
