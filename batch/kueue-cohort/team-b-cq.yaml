@@ -23,7 +23,7 @@ spec:
   resources:
   - name: "cpu"
     flavors:
-    - name: default
+    - name: on-demand
       quota:
         max: 15
         min: 10
