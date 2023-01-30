@@ -21,9 +21,9 @@ steps:
   args:
     - 'build'
     - '-t'
-    - 'gcr.io/google-samples/whereami:v1.2.18'
+    - 'gcr.io/google-samples/whereami:v1.2.19'
     - '-t'
-    - 'us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.18'
+    - 'us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.19'
     - '.'
   dir: 'whereami'
 - name: ubuntu
@@ -33,8 +33,8 @@ steps:
     curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
     cd whereami/helm-chart
     helm package .
-    helm push whereami-1.2.18.tgz oci://us-docker.pkg.dev/google-samples/charts
+    helm push whereami-1.2.19.tgz oci://us-docker.pkg.dev/google-samples/charts
 
 images:
-  - 'gcr.io/google-samples/whereami:v1.2.18'
-  - 'us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.18'
+  - 'gcr.io/google-samples/whereami:v1.2.19'
+  - 'us-docker.pkg.dev/google-samples/containers/gke/whereami:v1.2.19'

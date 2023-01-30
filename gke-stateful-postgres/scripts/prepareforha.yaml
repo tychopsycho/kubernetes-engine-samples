@@ -4,15 +4,18 @@ metadata:
   name: prepare-three-zone-ha
   labels:
     app: prepare-three-zone-ha
+    app.kubernetes.io/name: postgresql-ha
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: prepare-three-zone-ha
+      app.kubernetes.io/name: postgresql-ha
   template:
     metadata:
       labels:
         app: prepare-three-zone-ha
+        app.kubernetes.io/name: postgresql-ha
     spec:
       affinity:
         podAntiAffinity:

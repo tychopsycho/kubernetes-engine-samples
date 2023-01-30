@@ -6,6 +6,9 @@ import emoji
 import logging
 from logging.config import dictConfig
 import requests
+from requests.adapters import HTTPAdapter
+import urllib3
+from urllib3 import Retry
 # gRPC stuff
 import grpc
 from six import b
@@ -44,9 +47,17 @@ class WhereamiPayload(object):
         self.payload = {}
         self.gce_metadata = {} # this will cache the results from calling GCE metadata
 
+        # configure retries for GCE metadata GET
+        # we're doing this because, on GKE, metadata endpoint can take a few seconds to be available
+        # see https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity#limitations
+        session = requests.Session()
+        adapter = HTTPAdapter(max_retries=Retry(total=3, backoff_factor=1, allowed_methods=['GET'])) #, status_forcelist=[429, 500, 502, 503, 504]))
+        session.mount("http://", adapter)
+        session.mount("https://", adapter)
+
         try:
             # grab info from GCE metadata
-            r = requests.get(METADATA_URL + '?recursive=true',
+            r = session.get(METADATA_URL + '?recursive=true',
                                 headers=METADATA_HEADERS)
             if r.ok:
                 logging.info("Successfully accessed GCE metadata endpoint.")
