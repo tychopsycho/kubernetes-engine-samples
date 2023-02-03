@@ -4,4 +4,4 @@
 
 This example shows how to build and deploy a stateful PostgreSQL using [Kubernetes](https://kubernetes.io) and Day 1 & 2 operations such as Monitoring with [Cloud Monitor](https://cloud.google.com/monitoring) and disastre recovery with [Backup for GKE](https://cloud.google.com/kubernetes-engine/docs/add-on/backup-for-gke/concepts/backup-for-gke).
 
-Follow this tutorial at https://cloud.google.com/kubernetes-engine/docs/tutorials/stateful-workloads/postresql
+Follow this tutorial at [https://cloud.google.com/kubernetes-engine/docs/tutorials/stateful-workloads/postgresql](https://cloud.google.com/kubernetes-engine/docs/tutorials/stateful-workloads/postgresql)
