@@ -16,5 +16,5 @@
 apiVersion: kueue.x-k8s.io/v1alpha2
 kind: ResourceFlavor
 metadata:
-  name: default # This ResourceFlavor will be used for all the resources
+  name: default-flavor # This ResourceFlavor will be used for all the resources
 # [END gke_batch_kueue_intro_flavors]

@@ -1,0 +1,25 @@
+name: gke-vpa-recommendations-ci
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/gke-vpa-recommendations-ci.yml'
+      - 'gke-vpa-recommendations/**'
+  pull_request:
+    paths:
+      - '.github/workflows/gke-vpa-recommendations-ci.yml'
+      - 'gke-vpa-recommendations/**'
+jobs:
+  job:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: build metric-exporter container
+        run: |
+          cd gke-vpa-recommendations/metrics-exporter
+          docker build --tag metric-exporter .
+      - name: build hpa-metrics-exporter container
+        run: |
+          cd gke-vpa-recommendations/scripts
+          docker build --tag hpa-metrics-exporter .

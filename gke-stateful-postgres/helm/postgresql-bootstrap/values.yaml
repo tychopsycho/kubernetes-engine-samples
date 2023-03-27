@@ -12,7 +12,7 @@ postgresql-ha:
   postgresql:
     image:
       repository: bitnami/postgresql-repmgr
-      tag: 15.1.0-debian-11-r0
+      tag: 15.2.0-debian-11-r0
     replicaCount: 3
     nodeAffinityPreset:
       type: "soft"

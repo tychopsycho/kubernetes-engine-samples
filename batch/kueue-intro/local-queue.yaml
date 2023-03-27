@@ -19,7 +19,7 @@ metadata:
   namespace: team-a # LocalQueue under team-a namespace
   name: team-a-lq
 spec:
-  clusterQueue: cq # Point to the ClusterQueue cq
+  clusterQueue: cluster-queue # Point to the ClusterQueue
 ---
 apiVersion: kueue.x-k8s.io/v1alpha2
 kind: LocalQueue
@@ -27,5 +27,5 @@ metadata:
   namespace: team-b # LocalQueue under team-b namespace
   name: team-b-lq
 spec:
-  clusterQueue: cq # Point to the ClusterQueue cq
+  clusterQueue: cluster-queue # Point to the ClusterQueue
 # [END gke_batch_kueue_intro_lq]

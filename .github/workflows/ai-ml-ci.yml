@@ -1,0 +1,21 @@
+name: ai-ml-ci
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/ai-ml-ci.yml'
+      - 'ai-ml/**'
+  pull_request:
+    paths:
+      - '.github/workflows/ai-ml-ci.yml'
+      - 'ai-ml/**'
+jobs:
+  job:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: build tensorflow container for gke-a100-jax tutorial
+        run: |
+          cd ai-ml/gke-a100-jax
+          docker build --tag tensorflow .

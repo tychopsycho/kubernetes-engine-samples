@@ -1,0 +1,10 @@
+apiVersion: v2
+name: app
+description: A Helm chart to bootstrap Kafka Cluster and dependencies on GKE
+type: application
+version: 0.1.0
+appVersion: "3.3.2"
+dependencies:
+- name: kafka
+  repository: https://charts.bitnami.com/bitnami
+  version: 20.0.6

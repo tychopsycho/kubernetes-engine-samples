@@ -16,29 +16,29 @@
 apiVersion: kueue.x-k8s.io/v1alpha2
 kind: ClusterQueue
 metadata:
-  name: cq
+  name: cluster-queue
 spec:
   namespaceSelector: {}
   queueingStrategy: BestEffortFIFO # Default queueing strategy
   resources:
   - name: "cpu"
     flavors:
-    - name: default
+    - name: default-flavor
       quota:
         min: 10
   - name: "memory"
     flavors:
-    - name: default
+    - name: default-flavor
       quota:
         min: 10Gi
   - name: "nvidia.com/gpu"
     flavors:
-    - name: default
+    - name: default-flavor
       quota:
         min: 10
   - name: "ephemeral-storage"
     flavors:
-    - name: default
+    - name: default-flavor
       quota:
         min: 10Gi
 # [END gke_batch_kueue_intro_cq]

@@ -220,3 +220,32 @@ resource "google_cloudbuild_trigger" "workload-metrics" {
         }
     }
 }
+
+resource "google_cloudbuild_trigger" "metrics-exporter" {
+    name = "kubernetes-engine-samples-metrics-exporter"
+    filename = "gke-vpa-recommendations/metrics-exporter/cloudbuild.yaml"
+    included_files = ["gke-vpa-recommendations/metrics-exporter/**"]
+    description = local.trigger_description
+
+    github {
+        owner = "GoogleCloudPlatform"
+        name = "kubernetes-engine-samples"
+        push {
+            branch = "^main$"
+        }
+    }
+}
+resource "google_cloudbuild_trigger" "hpa-metrics-exporter" {
+    name = "kubernetes-engine-samples-hpa-metrics-exporter"
+    filename = "gke-vpa-recommendations/scripts/cloudbuild.yaml"
+    included_files = ["gke-vpa-recommendations/scripts/**"]
+    description = local.trigger_description
+
+    github {
+        owner = "GoogleCloudPlatform"
+        name = "kubernetes-engine-samples"
+        push {
+            branch = "^main$"
+        }
+    }
+}

@@ -8,4 +8,8 @@
 # Directory-specific owners
 /windows-multi-arch/ @ibabou @liurupeng @mcshooter @pjh
 /gke-stateful-postgres/ @aburhan @pwschuurman
+/gke-stateful-kafka/ @aburhan @pwschuurman
+/gke-vpa-recommendations/ @aburhan
 /whereami/ @theemadnes
+/ai-ml/ @rbarberop @alizaidis
+/batch/ @rbarberop @alizaidis

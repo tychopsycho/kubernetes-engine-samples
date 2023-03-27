@@ -1,0 +1,29 @@
+name: gke-stateful-kafka-ci
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/gke-stateful-kafka-ci.yml'
+      - 'gke-stateful-kafka/**'
+  pull_request:
+    paths:
+      - '.github/workflows/gke-stateful-kafka-ci.yml'
+      - 'gke-stateful-kafka/**'
+jobs:
+  job:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate GKE Autopilot TF
+        run: |
+          cd gke-stateful-kafka/terraform/gke-autopilot
+          terraform init
+          terraform validate
+      - name: Validate GKE Standard TF
+        run: |
+          cd gke-stateful-kafka/terraform/gke-standard
+          terraform init
+          terraform validate
+      
+      

@@ -17,12 +17,14 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 	"sync"
-	"github.com/go-redis/redis/v8"
+
+	"github.com/redis/go-redis/v9"
 )
 
 // Start of resource pool code.
@@ -36,6 +38,7 @@ type resourcePool struct {
 
 var pool resourcePool
 var redisClusterClient *redis.ClusterClient
+var ctx = context.Background()
 
 func (p *resourcePool) alloc() bool {
 	p.mtx.Lock()
@@ -75,8 +78,8 @@ func main() {
 
 	// connect to redis cluster
 	redisClusterClient = redis.NewClusterClient(&redis.ClusterOptions{
-		Addrs: []string{"redis-cluster:6379"},
-		RouteByLatency: true,})
+		Addrs:          []string{"redis-cluster:6379"},
+		RouteByLatency: true})
 	defer redisClusterClient.Close()
 
 	// start the web server on port and accept requests
@@ -103,7 +106,7 @@ func healthz(w http.ResponseWriter, r *http.Request) {
 
 // hello responds to the request with a plain-text "Hello, world" message and a timestamp.
 func hello(w http.ResponseWriter, r *http.Request) {
-        
+
 	log.Printf("Serving request: %s", r.URL.Path)
 
 	if !pool.alloc() {
@@ -114,7 +117,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 		defer pool.release()
 	}
 
-	count, err := redisClusterClient.Incr(redisClusterClient.Context(), "hits").Result()
+	count, err := redisClusterClient.Incr(ctx, "hits").Result()
 	if err != nil {
 		w.Write([]byte("500 - Error due to redis cluster broken!\n" + fmt.Sprintf("%v", err)))
 		return
@@ -122,4 +125,3 @@ func hello(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w, "I have been hit [%v] times since deployment!", count)
 }
-
