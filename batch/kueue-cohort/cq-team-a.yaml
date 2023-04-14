@@ -29,7 +29,7 @@ spec:
       resources:
       - name: "cpu"
         nominalQuota: 10
-        borrowingLimit: 15
+        borrowingLimit: 5
       - name: "memory"
         nominalQuota: 10Gi
         borrowingLimit: 15Gi
