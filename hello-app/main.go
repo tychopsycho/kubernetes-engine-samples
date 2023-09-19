@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// foobar!
+
 // [START gke_hello_app]
 // [START container_hello_app]
 package main
